@@ -211,7 +211,7 @@ constexpr auto kMinAcceptableContrast = 1.14;// 4.5;
 			if (!gradient.isNull()
 				&& request.background.patternOpacity < 0.
 				&& request.background.patternOpacity > -1.) {
-				p.setCompositionMode(QPainter::CompositionMode_SourceOver);
+				p.setCompositionMode(QPainter::CompositionMode_Source);
 				p.setOpacity(1. + request.background.patternOpacity);
 				p.fillRect(QRect(QPoint(), request.area), Qt::black);
 			}
@@ -1119,7 +1119,7 @@ QImage GenerateBackgroundImage(
 		}
 		drawPattern(p, IsPatternInverted(bg, patternOpacity));
 		if (patternOpacity < 0. && patternOpacity > -1.) {
-			p.setCompositionMode(QPainter::CompositionMode_SourceOver);
+			p.setCompositionMode(QPainter::CompositionMode_Source);
 			p.setOpacity(1. + patternOpacity);
 			p.fillRect(QRect{ QPoint(), size }, Qt::black);
 		}

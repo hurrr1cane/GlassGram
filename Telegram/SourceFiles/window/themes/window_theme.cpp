@@ -891,7 +891,7 @@ QImage ChatBackground::createCurrentImage() const {
 		}
 		p.drawImage(QRect(QPoint(), _prepared.size()), _prepared);
 		if (patternOpacity < 0. && patternOpacity > -1.) {
-			p.setCompositionMode(QPainter::CompositionMode_SourceOver);
+			p.setCompositionMode(QPainter::CompositionMode_Source);
 			p.setOpacity(1. + patternOpacity);
 			p.fillRect(QRect(QPoint(), _prepared.size()), Qt::black);
 		}
